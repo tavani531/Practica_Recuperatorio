@@ -8,7 +8,7 @@ namespace DrinkManagerService
 {
     public abstract class Bebidas
     {
-        private int AutoIncremental = 1000;
+        private static int AutoIncremental = 1000;
         public int Codigo { get; private set; }
         public string Nombre { get; set; }
         public int PrecioBase { get; set; }

@@ -8,7 +8,7 @@ namespace DrinkManagerService
 {
     public class VentasRealizadas
     {
-        private int codigoIncremental=1;
+        private static int codigoIncremental=1;
         public int CodigoVenta { get; set; }
         public Bebidas BebidaVendida { get; set; }
         public DateTime FechaYHoraVenta { get; set; }

@@ -5,11 +5,16 @@
         public List<Bebidas> Bebidas = new List<Bebidas>();
         public List<VentasRealizadas> Ventas = new List<VentasRealizadas>();
 
-        public void RegistrarBebida(Bebidas bebida)
+        public bool RegistrarBebida(Bebidas bebida)
         {
             if (bebida.EsValido() == true)
             {
                 Bebidas.Add(bebida);
+                return true;
+            }
+            else
+            {
+                return false;
             }
         }
         public (bool, string) RegistrarVenta(int codigo, int cantidad)
@@ -41,7 +46,12 @@
                           .FirstOrDefault();
 
         }
-        
-        
+        public List<Bebidas> BuscarPorTexto(string texto)
+        {
+            texto = texto.ToLower();
+            return Bebidas.Where(b => b.Nombre.ToLower().Contains(texto) && b.EsValido()).ToList();
+        }
+
+
     }
 }
