@@ -26,5 +26,6 @@ namespace DrinkManagerService
         {
             return $"Nombre: {Nombre}, Marca: {Marca}, Volumen: {Volumen}ml, Precio Final: {PrecioFinal}";
         }
+        public abstract bool EsValido();
     }
 }

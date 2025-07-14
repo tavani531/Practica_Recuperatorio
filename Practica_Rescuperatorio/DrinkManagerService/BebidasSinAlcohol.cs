@@ -26,5 +26,17 @@ namespace DrinkManagerService
             }
             return PrecioFinal;
         }
+        public override bool EsValido()
+        {
+            if (AptoDiabeticos == true && AptoDiabeticos == false)
+            {
+                return false;
+            }
+            if (Colorantes == true && Colorantes == false)
+            {
+                return false;
+            }
+            return true;
+        }
     }
 }

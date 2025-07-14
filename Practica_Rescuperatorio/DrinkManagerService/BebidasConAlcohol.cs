@@ -30,6 +30,18 @@ namespace DrinkManagerService
         {
             return base.MostrarInformacion() + $", Porcentaje Alcohol: {PorcentajeAlcohol}%, Tipo Bebida: {TipoBebida}";
         }
+        public override bool EsValido()
+        {
+            if (FechaFabricacion > DateTime.Now)
+            {
+                return false;
+            }
+            if ( PorcentajeAlcohol<=0)
+            {
+                return false;
+            }
+            return true;
+        }
 
     }
 }

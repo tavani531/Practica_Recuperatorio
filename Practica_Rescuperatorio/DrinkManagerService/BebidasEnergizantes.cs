@@ -25,5 +25,17 @@ namespace DrinkManagerService
             }
             return PrecioFinal;
         }
+        public override bool EsValido()
+        {
+            if(AptaDeportistas== true && AptaDeportistas == false)
+            {
+                return false; 
+            }
+            if(NivelAzucar != Enums.NivelAzucar.Bajo && NivelAzucar != Enums.NivelAzucar.Medio && NivelAzucar!= Enums.NivelAzucar.Alto)
+            {
+                return false;
+            }
+            return true;
+        }
     }
 }
