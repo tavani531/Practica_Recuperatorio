@@ -26,7 +26,20 @@
                 Ventas.Add(venta);
                 return (true, resultadoValidacion.Item2);
             }
-            
+
+        }
+        public List<string> ListaBebidasExistentes()
+        {
+            return Bebidas.Where(b => b.EsValido())
+                          .Select(b => b.MostrarInformacion())
+                          .ToList();
+        }
+        public Bebidas BebidaMasEconomica(List<int> Codigos)
+        {
+            return Bebidas.Where(b => Codigos.Contains(b.Codigo))
+                          .OrderBy(b => b.PrecioFinal)
+                          .FirstOrDefault();
+
         }
         
         
