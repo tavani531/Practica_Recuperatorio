@@ -1,16 +1,36 @@
+using NUnit.Framework;
+using System.Collections.Generic;
+using DrinkManagerService;
+
 namespace DrinkManagerServiceTest
 {
-    public class Tests
+    public class CargaProductoTest
     {
-        [SetUp]
-        public void Setup()
+        [Test]
+        public void CargarProducto()
         {
+            var plataforma = new Plataforma();
+
+            var bebida = new BebidasSinAlcohol
+            {
+                Nombre = "Gaseosa Coca Cola",
+                Marca = "Coca-Cola",
+                PrecioBase = 100,
+                Volumen = 500,
+                Sabor = Enums.Sabor.Cola,
+                AptoDiabeticos = true,
+                Colorantes = false,
+                Gasificada = true
+            };
+
+            bool resultado = plataforma.RegistrarBebida(bebida);
+            var lista = plataforma.ListaBebidasExistentes();
+
+            Assert.IsTrue(resultado);
+            Assert.AreEqual(1, lista.Count);
+            Assert.IsTrue(lista[0].Contains("Gaseosa Coca Cola"));
         }
 
-        [Test]
-        public void Test1()
-        {
-            Assert.Pass();
-        }
+       
     }
 }
